@@ -14,13 +14,28 @@
         <li><a href="/information.php?id=mysql">mysql</a></li>
         <li><a href="/information.php?id=php">php</a></li>
     </ol>
-    <?php    
+    <?php
     $name = $_GET['id'];
     if(isset($name)){
         echo $name;
         echo file_get_contents("phppr/".$name.".txt");
     } else{
         echo 'welcome';
+    }
+    $dir = 'phppr/';
+    $filelist =scandir($dir);
+    echo $filelist;
+    $c=count($filelist);
+    echo $c;
+    for ($i = 0; $i < $c; $i++) {
+        $k=$filelist[i];
+        echo $k;
+        if($k=="." or $k==".."){
+            continue;
+        } else {
+            echo $k;
+        }
+        
     }
     ?>
 </body>
